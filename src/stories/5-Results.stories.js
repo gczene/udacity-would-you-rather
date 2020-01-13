@@ -2,7 +2,6 @@ import React from 'react';
 import Result from '../components/QuestionBox/Result';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.module.css';
-import { action } from "@storybook/addon-actions";
 import { questions, users } from '../utils/_DATA';
 
 export default {
