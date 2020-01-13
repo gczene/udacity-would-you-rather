@@ -1,5 +1,6 @@
 import React from 'react';
 import { users } from '../utils/_DATA';
+import 'bootstrap/dist/css/bootstrap.min.css';
 
 import QuestionBox from "../components/QuestionBox";
 export default {
