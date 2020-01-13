@@ -1,0 +1,8 @@
+.title {
+  composes: title from '../../../App.module.css';
+}
+.badge {
+  position: absolute;
+  top: 0.5rem;
+  right: 1rem;
+}
