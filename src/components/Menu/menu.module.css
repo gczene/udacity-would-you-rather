@@ -1,0 +1,11 @@
+.avatar {
+  position: absolute;
+  right: 10px;
+  height: 40px;
+  width: 40px;
+  top: 0;
+}
+.user {
+  position: relative;
+  padding-right: 55px;
+}
