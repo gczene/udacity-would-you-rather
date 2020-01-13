@@ -2,6 +2,7 @@ import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import Menu from '../components/Menu'
 import {BrowserRouter as Router} from "react-router-dom";
+import { users } from '../utils/_DATA';
 
 export default {
   title: 'Menu',
@@ -9,10 +10,7 @@ export default {
 }
 
 export const LoggedInMenu = () => {
-  const user = {
-    name: 'John Doe',
-    avatarURL: '/images/user-1.jpg'
-  };
+  const user = users['johndoe'];
   return (
     <Router>
       <Menu user={user} />

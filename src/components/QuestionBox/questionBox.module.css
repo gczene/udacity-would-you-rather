@@ -1,0 +1,15 @@
+.avatar{
+  width: 150px;
+  height: 150px;
+}
+.body {
+  display: flex;
+}
+.content {
+  padding-left: 20px;
+}
+.border {
+  width: 0px;
+  border-right: 1px solid rgba(0,0,0,.125);
+  margin-left: 10px;
+}
