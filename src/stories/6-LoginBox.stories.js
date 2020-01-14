@@ -2,6 +2,7 @@ import React from 'react';
 import LoginBox from '../components/LoginBox';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import { users } from '../utils/_DATA';
+import {action} from "@storybook/addon-actions";
 
 export default {
   title: 'Login box',
@@ -11,7 +12,7 @@ export default {
 export const LoginBoxExample = () => {
 
   return (
-    <LoginBox users={users} />
+    <LoginBox users={users} onSubmit={action('submit')} />
   );
 };
 

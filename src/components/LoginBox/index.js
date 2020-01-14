@@ -9,7 +9,7 @@ export default ({ users, onSubmit = () => {} }) => {
 
   const submit = (e) => {
     e.preventDefault();
-    console.log(selectedUser)
+    onSubmit(selectedUser);
   }
 
   return (
