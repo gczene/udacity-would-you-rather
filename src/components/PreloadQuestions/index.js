@@ -8,6 +8,9 @@ const PreloadQuestions = ({ fetchQuestions, children, isLoading }) => {
       fetchQuestions();
     }
   }, [fetchQuestions])
+  if (isLoading) {
+    return null;
+  }
   return <>{children}</>;
 };
 
