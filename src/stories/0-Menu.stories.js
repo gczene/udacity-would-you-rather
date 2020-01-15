@@ -1,6 +1,6 @@
 import React from 'react';
 import 'bootstrap/dist/css/bootstrap.min.css';
-import Menu from '../components/Menu'
+import Menu from '../components/Menu/Nav'
 import {BrowserRouter as Router} from "react-router-dom";
 import { users } from '../utils/_DATA';
 
