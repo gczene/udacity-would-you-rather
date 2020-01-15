@@ -1,7 +1,7 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import {Button, Card, Form} from "react-bootstrap";
 
-export default ({ users, onSubmit = () => {} }) => {
+export default ({ users, onSubmit = () => {}, isLoading }) => {
   const userArr = Object.keys(users)
     .map((id) => users[id]);
 
@@ -36,3 +36,4 @@ export default ({ users, onSubmit = () => {} }) => {
     </Card>
   );
 };
+
