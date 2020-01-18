@@ -1,4 +1,4 @@
-import {PUT_USERS_INTO_STORE} from "../actions/users";
+import { PUT_USERS_INTO_STORE, ADD_VOTE_TO_USER } from "../actions/users";
 
 const initialState = {
   byIds: {},
@@ -7,6 +7,21 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case ADD_VOTE_TO_USER:
+      const { authedUser, qid, answer } = action;
+      return {
+        ...state,
+        byIds: {
+          ...state.byIds,
+          [authedUser]: {
+            ...state.byIds[authedUser],
+            answers: {
+              ...state.byIds[authedUser].answers,
+              [qid]: answer
+            }
+          }
+        }
+      }
     case PUT_USERS_INTO_STORE:
       return {
         ...state,
