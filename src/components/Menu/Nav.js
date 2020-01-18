@@ -1,9 +1,9 @@
 import React from 'react';
-import { Container, Nav, Navbar } from "react-bootstrap";
+import { Button, Container, Nav, Navbar } from "react-bootstrap";
 import { Link, NavLink } from 'react-router-dom';
 import styles from './menu.module.css';
 
-export default ({user}) => {
+export default ({ user, logout }) => {
   return (
     <Navbar bg="light" expand="lg">
       <Container>
@@ -16,12 +16,14 @@ export default ({user}) => {
           </Nav>
           <Nav>
             {user && (
-              <Navbar.Text className={styles.user}>
-                Hello {user.name}
-                <img className={styles.avatar} src={user.avatarURL} />
-              </Navbar.Text>
+              <>
+                <Navbar.Text className={styles.user}>
+                  Hello {user.name}
+                  <img className={styles.avatar} src={user.avatarURL} />
+                </Navbar.Text>
+                <Button onClick={logout}>Logout</Button>
+              </>
             )}
-            <Nav.Link>Logout</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
