@@ -3,7 +3,7 @@ import { connect } from 'react-redux';
 import Home from './Home';
 
 const mapStateToProps = (state) => {
-  const user = state.loggedInUser;
+  const user = state.users.byIds[state.loggedInUser.id];
   const questions = Object.keys(state.questions.byIds)
     .map((id) => {
       return {
