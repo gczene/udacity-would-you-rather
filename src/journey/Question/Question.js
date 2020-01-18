@@ -1,9 +1,10 @@
 import React from 'react';
-import QuestionBox from '../../components/QuestionBox'
-import Question from '../../components/QuestionBox/Question';
 import { Col, Container, Row } from "react-bootstrap";
+import Question from '../../components/QuestionBox/Question';
+import QuestionBox from '../../components/QuestionBox';
+import Result from '../../components/QuestionBox/Result';
 
-export default ({ author, loggedInUser, question, saveAnswer }) => {
+export default ({ author, loggedInUser, question, saveAnswer, vote }) => {
   const isAnswered = !!loggedInUser.answers[question.id];
 
   const submitHandler = (val) => {
@@ -13,13 +14,14 @@ export default ({ author, loggedInUser, question, saveAnswer }) => {
       answer: val
     })
   }
-  console.log(question);
+
   return (
     <Container>
       <Row>
         <Col sm={{ span: 8, offset: 2 }}>
           <QuestionBox user={author}>
             {!isAnswered && <Question onSubmit={submitHandler} question={question} />}
+            {isAnswered && <Result question={question} user={loggedInUser} vote={vote} />}
           </QuestionBox>
         </Col>
       </Row>

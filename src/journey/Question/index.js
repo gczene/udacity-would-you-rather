@@ -3,14 +3,15 @@ import { connect } from "react-redux";
 import Question from "./Question";
 import {saveAnswer} from "../../actions/questions";
 
-const mapStateToProps = ({ questions, loggedInUser, users }, props) => {
+const mapStateToProps = ({ questions, loggedInUser, users, votes }, props) => {
   const { id } = props.match.params;
   const question = questions.byIds[id];
   const author = users.byIds[question.author];
   return {
     question,
-    loggedInUser,
+    loggedInUser: users.byIds[loggedInUser.id],
     author,
+    vote: votes.byIds[id]
   }
 };
 
