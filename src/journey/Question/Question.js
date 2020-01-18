@@ -4,12 +4,12 @@ import Question from '../../components/QuestionBox/Question';
 import QuestionBox from '../../components/QuestionBox';
 import Result from '../../components/QuestionBox/Result';
 
-export default ({ author, loggedInUser, question, saveAnswer, vote }) => {
-  const isAnswered = !!loggedInUser.answers[question.id];
+export default ({ author, user, question, saveAnswer, vote }) => {
+  const isAnswered = !!user.answers[question.id];
 
   const submitHandler = (val) => {
     saveAnswer({
-      authedUser: loggedInUser.id,
+      authedUser: user.id,
       qid: question.id,
       answer: val
     })
@@ -21,7 +21,7 @@ export default ({ author, loggedInUser, question, saveAnswer, vote }) => {
         <Col sm={{ span: 8, offset: 2 }}>
           <QuestionBox user={author}>
             {!isAnswered && <Question onSubmit={submitHandler} question={question} />}
-            {isAnswered && <Result question={question} user={loggedInUser} vote={vote} />}
+            {isAnswered && <Result question={question} user={user} vote={vote} />}
           </QuestionBox>
         </Col>
       </Row>

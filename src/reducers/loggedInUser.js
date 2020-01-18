@@ -4,7 +4,7 @@ const initialState = null;
 export default (state = initialState, action) => {
   switch (action.type) {
     case LOGIN_USER:
-      return action.user;
+      return action.user.id;
     default:
       return state;
   }

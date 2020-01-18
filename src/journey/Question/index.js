@@ -9,7 +9,7 @@ const mapStateToProps = ({ questions, loggedInUser, users, votes }, props) => {
   const author = users.byIds[question.author];
   return {
     question,
-    loggedInUser: users.byIds[loggedInUser.id],
+    user: users.byIds[loggedInUser],
     author,
     vote: votes.byIds[id]
   }
