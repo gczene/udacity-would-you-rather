@@ -13,6 +13,7 @@ export default ({ author, loggedInUser, question, saveAnswer }) => {
       answer: val
     })
   }
+  console.log(question);
   return (
     <Container>
       <Row>

@@ -4,6 +4,13 @@ import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.module.css';
 import { action } from "@storybook/addon-actions";
 import { questions } from '../utils/_DATA';
+const question = {
+  id: 'user-1',
+  author: 'A user',
+  timestamp: 1467166872634,
+  optionOne: 'question 1',
+  optionTwo: 'question 2',
+};
 
 export default {
   title: 'Question',
@@ -11,7 +18,6 @@ export default {
 };
 
 export const QuestionExample = () => {
-  const question = questions[Object.keys(questions)[0]];
   return (
     <Question question={question} onSubmit={action('submit')} />
   );

@@ -18,7 +18,7 @@ export default ({ question }) => {
     <div className={styles.container}>
       <p><b>Would you rather</b></p>
       <p>
-        ...{getShortText(question.optionOne.text, 25)}...
+        ...{getShortText(question.optionOne, 25)}...
       </p>
       <p>
         <Link className={'btn btn-outline-success btn-block'} to={`/question/${question.id}`}>View Poll</Link>

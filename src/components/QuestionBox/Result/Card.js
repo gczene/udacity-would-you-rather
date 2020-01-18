@@ -3,7 +3,7 @@ import {Badge, Card, ProgressBar} from "react-bootstrap";
 import styles from "./Result.module.css";
 
 export default ({ allVotes, votes, userId, text }) => {
-  const percentage = parseInt(votes.length / allVotes * 100);
+  const percentage = Math.round(votes.length / allVotes * 100);
   return (
     <Card className={'mb-3'}>
       <Card.Body>

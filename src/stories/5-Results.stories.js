@@ -10,11 +10,21 @@ export default {
 };
 
 export const ResultExample = () => {
-  const question = questions['6ni6ok3ym7mf1p33lnez'];
+  const question = {
+    id: 'user-1',
+    author: 'A user',
+    timestamp: 1467166872634,
+    optionOne: 'question 1',
+    optionTwo: 'question 2',
+  };
+  const vote = {
+    optionOne: ['user-1'],
+    optionTwo: ['user-2', 'user-3'],
+  }
   const user = users.sarahedo;
 
   return (
-    <Result user={user} question={question} />
+    <Result user={user} question={question} vote={vote} />
   );
 };
 

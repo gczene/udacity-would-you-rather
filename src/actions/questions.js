@@ -1,25 +1,21 @@
 import { _getQuestions, _saveQuestionAnswer } from '../utils/_DATA';
 import { showLoading, hideLoading } from 'react-redux-loading';
+import { putVotesToStore } from '../actions/votes';
+import {addVote} from "./votes";
 
 export const PUT_QUESTIONS_INTO_STORE = 'PUT_QUESTIONS_INTO_STORE';
-export const UPDATE_ANSWER_IN_QUESTION = 'UPDATE_ANSWER_IN_QUESTION';
 
-const handleResponse = (questions) => ({
+const putQuestionsToStore = (questions) => ({
   type: PUT_QUESTIONS_INTO_STORE,
   questions,
-});
-
-export const updateAnswerInQuestion = (userId, qId, answer) => ({
-  type: UPDATE_ANSWER_IN_QUESTION,
-  userId,
-  qId,
-  answer,
 });
 
 export const saveAnswer = ({ authedUser, qid, answer }) => {
   return (dispatch) => {
     dispatch(showLoading());
-    dispatch(updateAnswerInQuestion(authedUser, qid, answer))
+
+    dispatch(addVote(authedUser, qid, answer))
+
     return _saveQuestionAnswer({ authedUser, qid, answer })
       .then((resp) => {
         dispatch(hideLoading());
@@ -29,13 +25,26 @@ export const saveAnswer = ({ authedUser, qid, answer }) => {
   }
 };
 
+const getVotesFromQuestions = (questions) => {
+  const votes = {};
+  Object.keys(questions).forEach((id) => {
+    votes[id] = {
+      optionOne: [ ...questions[id].optionOne.votes ],
+      optionTwo: [ ...questions[id].optionTwo.votes ],
+    };
+  });
+  return votes;
+}
+
 export const fetchQuestions = () => {
   return (dispatch) => {
     dispatch(showLoading());
     return _getQuestions()
       .then((questions) => {
         dispatch(hideLoading());
-        dispatch(handleResponse(questions));
+        console.log(questions);
+        dispatch(putQuestionsToStore(questions));
+        dispatch(putVotesToStore(getVotesFromQuestions(questions)))
       });
   };
 };

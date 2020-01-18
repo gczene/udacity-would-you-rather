@@ -1,4 +1,4 @@
-import {PUT_QUESTIONS_INTO_STORE, UPDATE_ANSWER_IN_QUESTION} from "../actions/questions";
+import {PUT_QUESTIONS_INTO_STORE} from "../actions/questions";
 
 
 const initialState = {
@@ -9,24 +9,20 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case PUT_QUESTIONS_INTO_STORE:
+      const byIds = {};
+      Object.keys(action.questions)
+        .forEach((id) => {
+          byIds[id] = {
+            ...action.questions[id],
+            optionOne: action.questions[id].optionOne.text,
+            optionTwo: action.questions[id].optionTwo.text,
+          }
+        });
       return {
         ...state,
-        byIds: action.questions,
+        byIds,
         isLoaded: true,
       };
-    case UPDATE_ANSWER_IN_QUESTION:
-      return {
-        ...state,
-        byIds: {
-          ...state.byIds,
-          [action.qId]: {
-            ...state.byIds[action.qId],
-            [action.answer]: {
-              // [...state.byIds[action.qId][action.answer].votes, action.userId]
-            }
-          }
-        }
-      }
     default:
       return state;
   }

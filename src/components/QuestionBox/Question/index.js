@@ -18,7 +18,7 @@ export default ({ question, onSubmit = () => {} }) => {
         onChange={() => setValue('optionOne')}
         type={'radio'}
         id={'optionOne'}
-        label={question.optionOne.text}
+        label={question.optionOne}
         name={'answer'}
         checked={value === 'optionOne'}
       />
@@ -26,7 +26,7 @@ export default ({ question, onSubmit = () => {} }) => {
         onChange={() => setValue('optionTwo')}
         type={'radio'}
         id={'optionTwo'}
-        label={question.optionTwo.text}
+        label={question.optionTwo}
         name={'answer'}
         checked={value === 'optionTwo'}
       />
