@@ -4,7 +4,7 @@ import { Button, Form } from "react-bootstrap";
 
 export default ({ question, onSubmit = () => {} }) => {
 
-  const [ value, setValue ] = useState(question.optionOne.text);
+  const [ value, setValue ] = useState('optionOne');
 
   const submit = (e) => {
     e.preventDefault();
@@ -15,20 +15,20 @@ export default ({ question, onSubmit = () => {} }) => {
     <Form onSubmit={submit}>
       <h1 className={styles.title}>Would you rather...</h1>
       <Form.Check
-        onChange={() => setValue(question.optionOne.text)}
+        onChange={() => setValue('optionOne')}
         type={'radio'}
         id={'optionOne'}
         label={question.optionOne.text}
         name={'answer'}
-        checked={value === question.optionOne.text}
+        checked={value === 'optionOne'}
       />
       <Form.Check
-        onChange={() => setValue(question.optionTwo.text)}
+        onChange={() => setValue('optionTwo')}
         type={'radio'}
         id={'optionTwo'}
         label={question.optionTwo.text}
         name={'answer'}
-        checked={value === question.optionTwo.text}
+        checked={value === 'optionTwo'}
       />
       <div>
         <Button type={'submit'} block variant={'success'}>Submit</Button>

@@ -15,11 +15,9 @@ export default ({ questions }) => {
       <Row>
         <Col sm={{span: 8, offset: 2}}>
           <Tabs onSelect={tabChange} />
-          {
-            questions
-              .filter((q) => q.answered === (filter === 'answered'))
-              .map((question) => <QuestionCard key={question.id} question={question} />)
-          }
+          {questions
+            .filter((q) => q.answered === (filter === 'answered'))
+            .map((question) => <QuestionCard key={question.id} question={question} />)}
         </Col>
       </Row>
       </Container>

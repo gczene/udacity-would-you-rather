@@ -6,6 +6,7 @@ import Authenticated from './components/Authenticated';
 import LoadingBar  from 'react-redux-loading';
 import Home from './journey/Home';
 import PreloadQuestions from './components/PreloadQuestions';
+import Question from './journey/Question';
 
 function App() {
   return (
@@ -16,6 +17,7 @@ function App() {
         <Authenticated>
           <PreloadQuestions>
             <Route exact path={'/'} component={Home} />
+            <Route path={'/question/:id'} component={Question} />
           </PreloadQuestions>
         </Authenticated>
       </div>

@@ -9,7 +9,6 @@ const mapStateToProps = (state, { question }) => {
   }
 }
 const Card = ({question, user}) => {
-  console.log(question, user);
   return (
     <QuestionBox user={user}>
       <Teaser question={question} />
