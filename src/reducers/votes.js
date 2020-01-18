@@ -7,7 +7,6 @@ const initialState = {
 export default (state = initialState, action) => {
   switch (action.type) {
     case ADD_VOTE:
-      console.log(action, state);
       return {
         ...state,
         byIds: {
