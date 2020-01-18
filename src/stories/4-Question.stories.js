@@ -3,7 +3,7 @@ import Question from '../components/QuestionBox/Question';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.module.css';
 import { action } from "@storybook/addon-actions";
-import { questions } from '../utils/_DATA';
+
 const question = {
   id: 'user-1',
   author: 'A user',

@@ -2,7 +2,7 @@ import React from 'react';
 import Result from '../components/QuestionBox/Result';
 import 'bootstrap/dist/css/bootstrap.min.css';
 import '../App.module.css';
-import { questions, users } from '../utils/_DATA';
+import { users } from '../utils/_DATA';
 
 export default {
   title: 'Result',

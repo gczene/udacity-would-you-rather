@@ -6,7 +6,6 @@ import { users } from '../utils/_DATA';
 
 export default {
   title: 'Menu',
-  // component: Menu,
 }
 
 export const LoggedInMenu = () => {
