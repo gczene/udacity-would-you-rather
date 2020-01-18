@@ -1,7 +1,7 @@
 import { _getQuestions, _saveQuestionAnswer } from '../utils/_DATA';
 import { showLoading, hideLoading } from 'react-redux-loading';
 import { putVotesToStore } from '../actions/votes';
-import {addVote} from "./votes";
+import { addVoteToVotes } from "./votes";
 
 export const PUT_QUESTIONS_INTO_STORE = 'PUT_QUESTIONS_INTO_STORE';
 
@@ -14,7 +14,7 @@ export const saveAnswer = ({ authedUser, qid, answer }) => {
   return (dispatch) => {
     dispatch(showLoading());
 
-    dispatch(addVote(authedUser, qid, answer))
+    dispatch(addVoteToVotes(authedUser, qid, answer))
 
     return _saveQuestionAnswer({ authedUser, qid, answer })
       .then((resp) => {
@@ -42,7 +42,6 @@ export const fetchQuestions = () => {
     return _getQuestions()
       .then((questions) => {
         dispatch(hideLoading());
-        console.log(questions);
         dispatch(putQuestionsToStore(questions));
         dispatch(putVotesToStore(getVotesFromQuestions(questions)))
       });
