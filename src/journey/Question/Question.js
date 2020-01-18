@@ -3,8 +3,13 @@ import { Col, Container, Row } from "react-bootstrap";
 import Question from '../../components/QuestionBox/Question';
 import QuestionBox from '../../components/QuestionBox';
 import Result from '../../components/QuestionBox/Result';
+import NotFound from '../../components/NotFound';
 
-export default ({ author, user, question, saveAnswer, vote }) => {
+export default ({ author, user, question, saveAnswer, vote, notFound }) => {
+  if (notFound) {
+    return <NotFound />
+  }
+
   const isAnswered = !!user.answers[question.id];
 
   const submitHandler = (val) => {

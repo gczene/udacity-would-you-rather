@@ -6,11 +6,17 @@ import {saveAnswer} from "../../actions/questions";
 const mapStateToProps = ({ questions, loggedInUser, users, votes }, props) => {
   const { id } = props.match.params;
   const question = questions.byIds[id];
+  if (!question) {
+    return {
+      notFound: true,
+    }
+  }
   const author = users.byIds[question.author];
   return {
     question,
     user: users.byIds[loggedInUser],
     author,
+    notFound: false,
     vote: votes.byIds[id]
   }
 };
