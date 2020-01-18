@@ -21,9 +21,7 @@ export const saveAnswer = ({ authedUser, qid, answer }) => {
     return _saveQuestionAnswer({ authedUser, qid, answer })
       .then((resp) => {
         dispatch(hideLoading());
-        console.log('----')
-        console.log(resp);
-      })
+      });
   }
 };
 
@@ -44,8 +42,8 @@ export const fetchQuestions = () => {
     return _getQuestions()
       .then((questions) => {
         dispatch(hideLoading());
-        dispatch(putQuestionsToStore(questions));
         dispatch(putVotesToStore(getVotesFromQuestions(questions)))
+        dispatch(putQuestionsToStore(questions));
       });
   };
 };
