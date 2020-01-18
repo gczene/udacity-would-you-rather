@@ -1,11 +1,14 @@
-import { PUT_VOTES_TO_STORE, ADD_VOTE } from '../actions/votes';
+import { PUT_VOTES_TO_STORE, ADD_VOTE, RESET_VOTES } from '../actions/votes';
 
 const initialState = {
   byIds: {},
+  isLoaded: false,
 };
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case RESET_VOTES:
+      return initialState;
     case ADD_VOTE:
       return {
         ...state,
@@ -20,7 +23,8 @@ export default (state = initialState, action) => {
     case PUT_VOTES_TO_STORE:
       return {
         ...state,
-        byIds: action.votes
+        byIds: action.votes,
+        isLoaded: true,
       };
     default:
       return state;

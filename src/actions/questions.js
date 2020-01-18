@@ -5,6 +5,11 @@ import { addVoteToVotes } from "./votes";
 import { addVoteToUser } from "./users";
 
 export const PUT_QUESTIONS_INTO_STORE = 'PUT_QUESTIONS_INTO_STORE';
+export const RESET_QUESTIONS = 'RESET_QUESTIONS';
+
+export const resetQuestions = () => ({
+  type: RESET_QUESTIONS,
+});
 
 const putQuestionsToStore = (questions) => ({
   type: PUT_QUESTIONS_INTO_STORE,

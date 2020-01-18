@@ -21,7 +21,7 @@ const mapDispatchToProps = (dispatch) => {
 };
 const mapStateToProps = (state) => {
   return {
-    isLoading: state.questions.isLoaded === false
+    isLoading: state.questions.isLoaded === false || state.votes.isLoaded === false
   };
 };
 

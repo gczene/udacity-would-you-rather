@@ -1,4 +1,4 @@
-import {PUT_QUESTIONS_INTO_STORE} from "../actions/questions";
+import { PUT_QUESTIONS_INTO_STORE, RESET_QUESTIONS } from "../actions/questions";
 
 
 const initialState = {
@@ -8,6 +8,8 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case RESET_QUESTIONS:
+      return initialState;
     case PUT_QUESTIONS_INTO_STORE:
       const byIds = {};
       Object.keys(action.questions)

@@ -1,4 +1,4 @@
-import { PUT_USERS_INTO_STORE, ADD_VOTE_TO_USER } from "../actions/users";
+import {PUT_USERS_INTO_STORE, ADD_VOTE_TO_USER, RESET_USERS} from "../actions/users";
 
 const initialState = {
   byIds: {},
@@ -7,6 +7,8 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case RESET_USERS:
+      return initialState;
     case ADD_VOTE_TO_USER:
       const { authedUser, qid, answer } = action;
       return {
@@ -29,6 +31,6 @@ export default (state = initialState, action) => {
         isLoaded: true
       }
     default:
-    return state;
+      return state;
   }
 };
