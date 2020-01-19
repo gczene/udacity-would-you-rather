@@ -7,7 +7,7 @@ const PreloadQuestions = ({ fetchQuestions, children, isLoading }) => {
     if (isLoading) {
       fetchQuestions();
     }
-  }, [fetchQuestions])
+  }, [fetchQuestions, isLoading])
   if (isLoading) {
     return null;
   }

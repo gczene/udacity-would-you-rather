@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from "react-redux";
 import Question from "./Question";
 import {saveAnswer} from "../../actions/questions";

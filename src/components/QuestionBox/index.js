@@ -7,7 +7,7 @@ export default ({ user, children }) => {
       <Card.Header>{user.name} asks</Card.Header>
       <Card.Body className={styles.body}>
         <div>
-          <Card.Img className={styles.avatar} variant="left" src={user.avatarURL} />
+          <Card.Img alt={`${user.name}'s avatar`} className={styles.avatar} variant="left" src={user.avatarURL} />
         </div>
         <div className={styles.border}></div>
         <div className={styles.content}>

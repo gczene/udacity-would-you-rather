@@ -10,7 +10,8 @@ const Login = ({ isLoading, users, fetchUsers, submit }) => {
     if (isLoading) {
       fetchUsers();
     }
-  }, [fetchUsers]);
+  }, [fetchUsers, isLoading]);
+
   if (isLoading) {
     return null;
   }

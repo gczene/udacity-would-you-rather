@@ -1,4 +1,3 @@
-import React from 'react';
 import { connect } from 'react-redux';
 import NewQuestion from './NewQuestion';
 import { saveQuestion } from '../../actions/questions';
@@ -12,5 +11,3 @@ const mapStateToProps = ({loggedInUser: authedUser}) => ({
 })
 
 export default connect(mapStateToProps, mapDispatchToProps)(NewQuestion);
-
-

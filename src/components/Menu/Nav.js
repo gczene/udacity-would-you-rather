@@ -20,7 +20,7 @@ export default ({ user, logout }) => {
               <>
                 <Navbar.Text className={styles.user}>
                   Hello {user.name}
-                  <img className={styles.avatar} src={user.avatarURL} />
+                  <img className={styles.avatar} alt={`${user.name}'s avatar`} src={user.avatarURL} />
                 </Navbar.Text>
                 <Button onClick={logout}>Logout</Button>
               </>
