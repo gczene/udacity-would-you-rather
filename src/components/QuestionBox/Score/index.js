@@ -1,12 +1,12 @@
 import React from "react";
 import styles from './Score.module.css';
-import {Card, ListGroup} from "react-bootstrap";
+import {Badge, Card, ListGroup} from "react-bootstrap";
 
-export default ({ createdQuestions, answeredQuestions}) => {
-  console.log(createdQuestions, answeredQuestions)
+export default ({ createdQuestions, answeredQuestions, position = 1}) => {
   return (
     <div className={styles.container}>
       <div className={styles.questions}>
+        <Badge variant={'info'} className={styles.badge}>#{position}</Badge>
         <ListGroup variant={'flush'}>
           <ListGroup.Item>
             Answered questions: <span className={'float-right'}>{answeredQuestions}</span>
