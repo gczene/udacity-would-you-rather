@@ -3,6 +3,7 @@ import { connect } from "react-redux";
 import LoginBox from '../LoginBox';
 import { fetchUsers } from "../../actions/users";
 import { login } from '../../actions/loggedinUser';
+import { Col, Container, Row } from "react-bootstrap";
 
 const Login = ({ isLoading, users, fetchUsers, submit }) => {
   useEffect(() => {
@@ -13,8 +14,16 @@ const Login = ({ isLoading, users, fetchUsers, submit }) => {
   if (isLoading) {
     return null;
   }
-  return <LoginBox users={users} onSubmit={submit} />
-}
+  return (
+    <Container>
+      <Row>
+        <Col sm={{span: 8, offset: 2}}>
+          <LoginBox users={users} onSubmit={submit} />
+        </Col>
+      </Row>
+    </Container>
+  );
+};
 
 const mapDispatchToProps = (dispatch) => {
   return {
