@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link } from "react-router-dom";
 import styles from './teaser.module.css';
+import { Button } from 'react-bootstrap';
 
 const getShortText = (str, max = 15) => {
   const arr = str.split(' ');
@@ -13,6 +14,10 @@ const getShortText = (str, max = 15) => {
   }, '');
 };
 
+const isTempId = (id) => {
+  return /^temp_/.test(id);
+}
+
 export default ({ question }) => {
   return (
     <div className={styles.container}>
@@ -21,7 +26,14 @@ export default ({ question }) => {
         ...{getShortText(question.optionOne, 25)}...
       </p>
       <p>
-        <Link className={'btn btn-outline-success btn-block'} to={`/question/${question.id}`}>View Poll</Link>
+        {
+          !isTempId(question.id) &&
+          <Link className={'btn btn-outline-success btn-block'} to={`/question/${question.id}`}>View Poll</Link>
+        }
+        {
+          isTempId(question.id) &&
+          <Button disabled variant={'outline-secondary'} block>Saving...</Button>
+        }
       </p>
     </div>
   );

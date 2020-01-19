@@ -1,5 +1,9 @@
-import { PUT_QUESTIONS_INTO_STORE, RESET_QUESTIONS } from "../actions/questions";
-
+import {
+  PUT_QUESTIONS_INTO_STORE,
+  RESET_QUESTIONS,
+  ADD_NEW_QUESTION,
+  UPDATE_QUESTION_AFTER_SAVING
+} from "../actions/questions";
 
 const initialState = {
   byIds: {},
@@ -8,6 +12,34 @@ const initialState = {
 
 export default (state = initialState, action) => {
   switch (action.type) {
+    case UPDATE_QUESTION_AFTER_SAVING:
+      return {
+        ...state,
+        byIds: Object.keys(state.byIds).reduce((acc, curr) => {
+          if (curr === action.oldId) {
+            return {
+              ...acc,
+              [action.newId]: {
+                ...state.byIds[curr],
+                id: action.newId,
+                timestamp: action.timestamp,
+              }
+            }
+          }
+          return {
+            ...acc,
+            [curr]: state.byIds[curr]
+          }
+        }, {})
+      };
+    case ADD_NEW_QUESTION:
+      return {
+        ...state,
+        byIds: {
+          ...state.byIds,
+          [action.question.id]: action.question,
+        }
+      };
     case RESET_QUESTIONS:
       return initialState;
     case PUT_QUESTIONS_INTO_STORE:
