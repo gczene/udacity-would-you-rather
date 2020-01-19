@@ -12,7 +12,7 @@ export default ({ user, logout }) => {
           <Nav className="mr-auto">
             <Nav.Link exact as={NavLink} to={''}>Home</Nav.Link>
             <Nav.Link as={NavLink} to={'/add'}>New Question</Nav.Link>
-            <Nav.Link as={NavLink} to={'/leader-board'}>Leader Board</Nav.Link>
+            <Nav.Link as={NavLink} to={'/leaderboard'}>Leader Board</Nav.Link>
           </Nav>
           <Nav>
             {user && (

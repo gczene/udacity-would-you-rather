@@ -8,6 +8,7 @@ import Home from './journey/Home';
 import PreloadQuestions from './components/PreloadQuestions';
 import Question from './journey/Question';
 import NewQuestion from "./journey/NewQuestion";
+import LeaderBoard from "./journey/LeaderBoard";
 
 function App() {
   return (
@@ -20,6 +21,7 @@ function App() {
             <Route exact path={'/'} component={Home} />
             <Route path={'/question/:id'} component={Question} />
             <Route path={'/add'} component={NewQuestion} />
+            <Route path={'/leaderboard'} component={LeaderBoard} />
           </PreloadQuestions>
         </Authenticated>
       </div>
