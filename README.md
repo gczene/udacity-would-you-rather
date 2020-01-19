@@ -1,8 +1,17 @@
+# Udacity Would You Rather
+
+Project specification [can be found here](https://review.udacity.com/#!/rubrics/1567/view)
+
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
 ## Available Scripts
 
 In the project directory, you can run:
+
+### `yarn storybook`
+Runs storybook to check presentational components.
+
+Open [http://localhost:9009](http://localhost:9009) to view it in the browser.
 
 ### `yarn start`
 
