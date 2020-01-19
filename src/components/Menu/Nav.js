@@ -8,7 +8,8 @@ export default ({ user, logout }) => {
     <Navbar bg="light" expand="lg">
       <Container>
         <Navbar.Brand><Link to={'/'}>Would you rather?</Link></Navbar.Brand>
-        <Navbar.Collapse id="basic-navbar-nav">
+        <Navbar.Toggle aria-controls="would-you-rather-menu" />
+        <Navbar.Collapse id="would-you-rather-menu">
           <Nav className="mr-auto">
             <Nav.Link exact as={NavLink} to={''}>Home</Nav.Link>
             <Nav.Link as={NavLink} to={'/add'}>New Question</Nav.Link>
