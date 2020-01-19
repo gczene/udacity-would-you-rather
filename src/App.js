@@ -19,7 +19,7 @@ function App() {
         <Authenticated>
           <PreloadQuestions>
             <Route exact path={'/'} component={Home} />
-            <Route path={'/question/:id'} component={Question} />
+            <Route path={'/questions/:id'} component={Question} />
             <Route path={'/add'} component={NewQuestion} />
             <Route path={'/leaderboard'} component={LeaderBoard} />
           </PreloadQuestions>

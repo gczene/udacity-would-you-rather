@@ -28,7 +28,7 @@ export default ({ question }) => {
       <p>
         {
           !isTempId(question.id) &&
-          <Link className={'btn btn-outline-success btn-block'} to={`/question/${question.id}`}>View Poll</Link>
+          <Link className={'btn btn-outline-success btn-block'} to={`/questions/${question.id}`}>View Poll</Link>
         }
         {
           isTempId(question.id) &&
