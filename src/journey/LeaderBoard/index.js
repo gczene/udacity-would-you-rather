@@ -20,7 +20,7 @@ const mapStateToProps = (state) => {
       }
     }).sort((a, b) => (
       (b.createdQuestions + b.answeredQuestions) - (a.createdQuestions + a.answeredQuestions)
-    ))
+    ));
   return {
     users,
   };
