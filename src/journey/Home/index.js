@@ -10,7 +10,8 @@ const mapStateToProps = (state) => {
         ...state.questions.byIds[id],
         answered: !!user.answers[id]
       }
-    });
+    })
+    .sort((a, b) => (b.timestamp - a.timestamp));
   return {
     questions,
   };
