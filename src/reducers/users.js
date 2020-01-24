@@ -25,9 +25,21 @@ export default (state = initialState, action) => {
         }
       }
     case PUT_USERS_INTO_STORE:
+      const users = Object.keys(action.users)
+        .reduce((acc, id) => {
+          const user = {
+            ...action.users[id]
+          };
+          delete user.questions;
+          return {
+            ...acc,
+            [id]: { ...user },
+          }
+        }, {});
+
       return {
         ...state,
-        byIds: action.users,
+        byIds: users,
         isLoaded: true
       }
     default:
